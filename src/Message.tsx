@@ -1,11 +1,9 @@
 import React, { ReactElement } from "react";
+import messageHoc from "./Hoc";
 
-interface MessageInterface {
-    message: string;
-}
+const example = (props: any): ReactElement => <p>{props.name}, {props.message}</p>;
 
-const Message: React.FC<MessageInterface> = (props): ReactElement => {
-  return <div>{props.message}</div>;
-};
+// the Message component has gotten the name and message prop from the messageHoc higher order component.
+const Message = messageHoc(example);
 
 export default Message;
